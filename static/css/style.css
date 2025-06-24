@@ -7,12 +7,21 @@
 body {
     font-family: "Times New Roman", Times, serif;
     line-height: 1.6;
-    background-color: white;
+    background: 
+        repeating-linear-gradient(
+            to bottom,
+            #ffffff,
+            #ffffff 30px,
+            #bf0a30 30px,
+            #bf0a30 60px
+        ),
+        url('https://www.transparenttextures.com/patterns/stardust.png');
+    background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #002868; /* U.S. blue */
+    color: #002868;
 }
 
 .chat-container {
@@ -20,21 +29,23 @@ body {
     max-width: 800px;
     height: 90vh;
     background-color: white;
-    border: 3px solid #002868; /* Navy Blue */
+    border: 3px solid #002868;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(2px);
 }
 
 .chat-header {
-    padding: 20px;
-    background-color: #bf0a30; /* Red */
+    padding: 15px;
+    background-color: #bf0a30;
     color: white;
     border-bottom: 3px solid #002868;
     text-align: center;
 }
 
 .chat-header h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -42,10 +53,13 @@ body {
 
 .header-image {
     margin-top: 10px;
-    max-width: 100%;
+    max-width: 120px;
     height: auto;
     border: 2px solid white;
-    border-radius: 5px;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .chat-messages {
