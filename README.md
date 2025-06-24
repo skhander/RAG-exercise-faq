@@ -61,4 +61,4 @@ This project is provided as a learning resource. Feel free to use
 - Share it with others for learning
 - Use it in workshops and tutorials
 
-Feel free to reach out to [Halim Madi](https://www.halimmadi.com) with any questions or feedback! 
+Feel free to reach out to Sam Khander with any questions or feedback! 
