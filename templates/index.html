@@ -10,7 +10,7 @@
     <div class="chat-container">
         <div class="chat-header">
             <h1>AMA about the US Constitution</h1>
-            <img src="https://i.imgur.com/mVLJ1FO.jpeg" alt="US Flag" class="header-image">
+            <img src="https://i.imgur.com/mVLJ1FO.jpeg" alt="US Eagle" class="header-image">
         </div>
         <div class="chat-messages" id="chat-messages">
             <div class="message bot">
@@ -28,30 +28,24 @@
     <script>
         document.getElementById('chat-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const userInput = document.getElementById('user-input');
             const question = userInput.value;
             const submitButton = e.target.querySelector('button');
-            
             submitButton.disabled = true;
             addMessage(question, 'user');
             userInput.value = '';
-            
             try {
                 const response = await fetch('/ask', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ question: question })
+                    body: JSON.stringify({ question })
                 });
-                
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
                 }
-                
                 const data = await response.json();
                 addMessage(data.answer, 'bot');
-                
                 if (data.context && data.context.length > 0) {
                     addMessage('Context used:', 'system');
                     data.context.forEach((chunk, index) => {
@@ -68,4 +62,12 @@
 
         function addMessage(text, type) {
             const messagesDiv = document.getElementById('chat-messages');
-            const
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>
