@@ -1,4 +1,4 @@
-# Template FAQ Chatbot with Mistral AI
+# Template Chatbot with Mistral AI
 
 A Retrieval-Augmented Generation (RAG) agent built with Flask and Mistral AI.
 
